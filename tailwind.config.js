@@ -4,6 +4,10 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    fontFamily:{
+
+
+    },
     extend: {
       colors: {
         zerf: {
