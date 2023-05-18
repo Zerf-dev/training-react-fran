@@ -1,9 +1,9 @@
 import Header from "@/components/header";
+import Footer from "@/components/footer";
 import banner from "./assets/heroimg.png";
 import Image from "next/image";
 import { useState } from "react";
-import RecipeList from "./components/recipeList";
-import SearchBar from "./components/searchBar";
+import HomeBody from "./components/homeBody";
 
 export default function HomeScreen() {
   const [busqueda, setBusqueda] = useState("");
@@ -19,8 +19,9 @@ export default function HomeScreen() {
         </div>
       </div>
       <div className="  w-2/3 mt-10 mx-auto flex">
-          <RecipeList/>
+          <HomeBody/>
       </div>
+      <Footer/>
     </>
   );
 }

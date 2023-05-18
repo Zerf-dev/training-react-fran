@@ -4591,6 +4591,7 @@ __metadata:
     redux: ^4.2.1
     redux-recompose: ^3.0.0
     redux-thunk: ^2.4.2
+    seamless-immutable: ^7.1.4
     tailwindcss: ^3.2.4
   languageName: unknown
   linkType: soft
@@ -5492,6 +5493,13 @@ __metadata:
   dependencies:
     loose-envify: ^1.1.0
   checksum: d79192eeaa12abef860c195ea45d37cbf2bbf5f66e3c4dcd16f54a7da53b17788a70d109ee3d3dde1a0fd50e6a8fc171f4300356c5aee4fc0171de526bf35f8a
+  languageName: node
+  linkType: hard
+
+"seamless-immutable@npm:^7.1.4":
+  version: 7.1.4
+  resolution: "seamless-immutable@npm:7.1.4"
+  checksum: f65c1dc12e460265ccc4b164085b807570f9fb8a619cd3c216fc7ed933fb09c57a24a7df1b638dc9bd6367d8d69c2f00b5370b0c0996b4046242539096d2d0c6
   languageName: node
   linkType: hard
 
