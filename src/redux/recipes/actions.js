@@ -1,7 +1,10 @@
 import { createTypes, completeTypes } from "redux-recompose";
 
 export const actions = createTypes(
-  completeTypes([], ["ADD_FAVOURITE", "REMOVE_FAVOURITE"]),
+  completeTypes({
+    primaryActions: [],
+    ignoredActions: ["ADD_FAVOURITE", "REMOVE_FAVOURITE"],
+  }),
   "@@RECIPES"
 );
 
