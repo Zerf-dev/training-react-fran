@@ -2,6 +2,8 @@ import Card from "./card";
 import { recetas } from "../data/recetas";
 import { useDispatch, useSelector } from "react-redux";
 
+import recipeActions from "@/redux/recipes/actions";
+
 /*
 const recetasFavoritas = [
   recetas.at(1),
@@ -11,9 +13,10 @@ const recetasFavoritas = [
 ];*/
 
 export default function RecipeList({ favourite }) {
+  const recetasFavoritas = useSelector((state) => state.recipes.favourite);
+  const dispatch = useDispatch();
 
-
-  const recetasFavoritas = useSelector(state => (state.recipes.favourite));
+  const addFavourite = (recipe) => dispatch(recipeActions.addFavourite(recipe));
 
   if (favourite) {
     return (
