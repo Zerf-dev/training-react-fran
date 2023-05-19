@@ -4,13 +4,15 @@ import RecipeList from "./recipeList";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 
+const selectedStyle =
+  "text-sm  p-1 my-4 mx-1 md:m-1 lg:text-base lg:mr-3 font-bold border-b-2 border-riquissima";
+const unselecteStyle = "text-sm p-1 my-4 mx-1 md:m-1 lg:text-base lg:mr-3";
+
 export default function HomeBody() {
   const [showFavourites, setShowFavourites] = useState(false);
-  const [allRecipesStyle, setAllResipesStyle] = useState(
-    "font-bold p-1 m-1 mr-3 border-b-2 border-riquissima"
-  );
+  const [allRecipesStyle, setAllResipesStyle] = useState(selectedStyle);
   const [favouriteRecipesStyle, setFavouriteRecipesStyle] =
-    useState("p-1 m-1 mr-3");
+    useState(unselecteStyle);
 
   const recipes = useSelector((state) => state.recipes.recipes);
   const favouriteRecipes = useSelector((state) => state.recipes.favourites);
@@ -37,17 +39,15 @@ export default function HomeBody() {
           </button>
         )}
       </div>
-      <div className="w-auto mx-5">
-        <div className="flex justify-between my-3">
-          <div>
+      <div className="w-auto md:mx-5">
+        <div className="flex flex-col justify-between my-3 md:flex-row">
+          <div className="flex justify-around md:justify-start">
             <button
               className={allRecipesStyle}
               onClick={() => {
                 setShowFavourites(false);
-                setAllResipesStyle(
-                  "font-bold p-1 m-1 mr-3 border-b-2 border-riquissima"
-                );
-                setFavouriteRecipesStyle("p-1 m-1 mr-3");
+                setAllResipesStyle(selectedStyle);
+                setFavouriteRecipesStyle(unselecteStyle);
               }}
             >
               Todas las recetas ({recipes.length})
@@ -56,10 +56,8 @@ export default function HomeBody() {
               className={favouriteRecipesStyle}
               onClick={() => {
                 setShowFavourites(true);
-                setAllResipesStyle("p-1 m-1 mr-3");
-                setFavouriteRecipesStyle(
-                  "font-bold p-1 m-1 mr-3 border-b-2 border-riquissima"
-                );
+                setAllResipesStyle(unselecteStyle);
+                setFavouriteRecipesStyle(selectedStyle);
               }}
             >
               Recetas favoritas ({favouriteRecipes.length})
