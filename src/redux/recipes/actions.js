@@ -12,6 +12,7 @@ export const actions = createTypes(
 
 export const actionCreators = {
   addFavourite: (recipe) => (dispatch, getState) => {
+
     const favourites = getState().recipes.favourites;
 
     dispatch({
@@ -30,6 +31,7 @@ export const actionCreators = {
       payload: favourites.filter((favourite) => favourite.id !== recipe.id),
     });
   },
+
   fetchRecipes: (recipes) => ({
     type: actions.LOAD_RECIPES,
     target: "recipes",
