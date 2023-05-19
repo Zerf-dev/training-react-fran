@@ -3,7 +3,6 @@ import thunk from 'redux-thunk';
 import { fetchMiddleware, configureMergeState, wrapCombineReducers } from 'redux-recompose';
 import { createWrapper } from 'next-redux-wrapper';
 
-import counter from './counter/reducer';
 import recipes from './recipes/reducer';
 
 configureMergeState((state, diff) => state.merge(diff));
@@ -12,7 +11,6 @@ const combineReducers = wrapCombineReducers(CR);
 
 // Add reducers here
 const reducers = combineReducers({
-  counter,
   recipes,
 });
 
