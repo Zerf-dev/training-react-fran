@@ -18,10 +18,14 @@ module.exports = {
           DEFAULT: "#A95042",
           contrast: "#A95042",
         },
-        fondo: {
+        background: {
           DEFAULT: "#F5F5F5",
           contrast: "#F5F5F5",
         },
+        backgroundRecipe: {
+          DEFAULT: "#FCFAFA",
+          contrast: "#F9F0EF",
+        }
       },
     },
   },

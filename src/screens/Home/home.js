@@ -18,25 +18,22 @@ export default function HomeScreen() {
   }, []);
   useDispatch(recipeActions.fetchRecipes());
 
- 
   return (
     <>
       <Header />
-      <div className="mx-4 h-full relative">
-        <Image
-          src={banner}
-          className="w-full rounded-3xl"
-          alt="Banner"
-        />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
-          <p className="font-bold lg:text-5xl) ">NUESTRAS RECETAS</p>
-          <p className="font-bold  text-xs md:text-base">
-            ¿Que querias cocinar hoy?
-          </p>
+      <div className="border-b-2">
+        <div className="mx-4 h-full relative">
+          <Image src={banner} className="w-full rounded-3xl" alt="Banner" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
+            <p className="font-bold lg:text-5xl) ">NUESTRAS RECETAS</p>
+            <p className="font-bold  text-xs md:text-base">
+              ¿Que querias cocinar hoy?
+            </p>
+          </div>
         </div>
-      </div>
-      <div className=" m-4 mt-10 md:w-2/3 md:mx-auto ">
-        <HomeBody />
+        <div className=" m-4 mt-10 md:w-2/3 md:mx-auto ">
+          <HomeBody />
+        </div>
       </div>
       <Footer />
     </>

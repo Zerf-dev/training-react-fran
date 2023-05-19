@@ -4,7 +4,6 @@ import EstrellaBlanca from "../assets/Estrella Blanca.svg";
 
 import { useDispatch, useSelector } from "react-redux";
 import recipeActions from "@/redux/recipes/actions";
-import Link from "next/link";
 
 export default function Card({ recipeId }) {
   const recipe = useSelector((state) => state.recipes.recipes).find(
@@ -18,24 +17,20 @@ export default function Card({ recipeId }) {
     dispatch(recipeActions.removeFavourite(recipe));
 
   return (
-    <Link href={`/recipes/${recipeId}`} className="">
-      <div className="w-full h-full relative ">
+      <div className="w-full h-full max-w-sm relative">
         <Image
           src={recipe.image}
           width={400}
           height={400}
           alt="Card"
-          className="object-cover rounded-lg h-60 w-full md:object-fill md:h-full "
+          className="object-cover rounded-2xl h-full  md:object-fill md:h-full "
         />
-        <p className="py-2.5 pl-2 w-full text-sm font-bold absolute bottom-0 bg-white/75 rounded-t-md md:text-xs md:pl-1 md:py-1 lg:text-sm xl:text-base">
-          {recipe.name.toUpperCase()}
-        </p>
         {favouriteRecipes.some((favourite) => favourite.id === recipe.id) ? (
           <button
             onClick={() => {
               removeFavourite(recipe);
             }}
-            className="absolute right-0 top-0 mt-2 mr-2 p-2 bg-white/75 rounded-xl md:p-1 lg:p-2"
+            className="absolute left-0 top-0 mt-2 ml-2 p-2 bg-white/75 rounded-xl md:p-1 lg:p-2"
           >
             <Estrella className="" />
           </button>
@@ -44,12 +39,11 @@ export default function Card({ recipeId }) {
             onClick={() => {
               addFavourite(recipe);
             }}
-            className="absolute right-0 top-0 mt-2 mr-2 p-2 bg-white/75 rounded-xl md:p-1 lg:p-2"
+            className="absolute left-0 top-0 mt-2 ml-2 p-2 bg-white/75 rounded-xl md:p-1 lg:p-2"
           >
             <EstrellaBlanca className="" />
           </button>
         )}
       </div>
-    </Link>
   );
 }
