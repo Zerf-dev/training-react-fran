@@ -25,8 +25,8 @@ export default function HomeScreen() {
         <div className="mx-4 h-full relative">
           <Image src={banner} className="w-full rounded-3xl" alt="Banner" />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
-            <p className="font-bold lg:text-5xl) ">NUESTRAS RECETAS</p>
-            <p className="font-bold  text-xs md:text-base">
+            <p className="font-bold text-base  md:text-5xl">NUESTRAS RECETAS</p>
+            <p className=" text-xs md:font-bold md:text-base">
               ¿Que querias cocinar hoy?
             </p>
           </div>
