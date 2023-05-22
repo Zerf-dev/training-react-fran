@@ -1,8 +1,14 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from "react";
 
-import Loading from './components/Loading';
+import Loading from "./components/Loading";
 
-function LoadingWrapper({ loading, children, withInitialLoading, className, loadingProps }) {
+function LoadingWrapper({
+  loading,
+  children,
+  withInitialLoading,
+  className,
+  loadingProps,
+}) {
   const initialLoading = useRef(withInitialLoading);
   useEffect(() => {
     if (initialLoading.current && loading) {
@@ -10,7 +16,11 @@ function LoadingWrapper({ loading, children, withInitialLoading, className, load
     }
   }, [loading]);
 
-  return initialLoading.current || loading ? <Loading className={className} {...loadingProps} /> : <>{children}</>;
+  return initialLoading.current || loading ? (
+    <Loading className={className} {...loadingProps} />
+  ) : (
+    <>{children}</>
+  );
 }
 
 export default LoadingWrapper;

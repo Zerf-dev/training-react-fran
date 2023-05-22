@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import recipeActions from "@/redux/recipes/actions";
 import { useEffect, useState } from "react";
 import LoadingWrapper from "@/components/common/LoadingWrapper";
-
+import { useRouter } from "next/router";
 
 const categories = [
   { id: "breakfast", name: "DESAYUNO" },
@@ -15,40 +15,48 @@ const categories = [
   { id: "dinner", name: "CENA" },
 ];
 
-
-
-export default function DetailsScreen({recipeId}) {
-  console.log(recipeId)
+export default function DetailsScreen() {
   const dispatch = useDispatch();
-  useEffect(()=>{
-    if(recipeId){
-    dispatch(recipeActions.getRecipeById(recipeId))}},[dispatch])
-  
-  const {recipe, recipeLoading} = useSelector(state => state.recipes)
+  const router = useRouter();
+  const recipeId = router.query.id;
+
+  useEffect(() => {
+    if (recipeId) {
+      console.log("holi");
+      dispatch(recipeActions.getRecipeById(recipeId));
+    }
+  }, []);
+
+  const { recipeById: recipe, recipeByIdLoading: recipeLoading } = useSelector(
+    (state) => state.recipes
+  );
 
   return (
-    <LoadingWrapper loading={recipeLoading || !recipeId}>
+    <LoadingWrapper withInitialLoading loading={recipeLoading || !recipeId}>
       <Header />
       <div className="px-7 py-10 border-y-2 md:px-32">
         <div className="text-xl font-bold text-riquissima">
-          RECETAS /{" "}
-          {categories.find((category) => category.id === recipe.category).name}
+          RECETAS /
+          {
+            categories.find((category) => category.id === recipe?.category)
+              ?.name
+          }
         </div>
         <div className="my-5 flex flex-col md:flex-row justify-start bg-backgroundRecipe-contrast rounded-2xl">
           <Card recipe={recipe} />
           <div className="flex flex-col mx-3  md:w-1/2 md:ml-10 my-6 space-y-3">
             <div className="text-2xl font-bold">
-              {recipe.name.toUpperCase()}
+              {recipe.name?.toUpperCase()}
             </div>
             <div className="text-xl font-bold">INGREDIENTES</div>
             <ul className="list-disc ">
-              {recipe.ingredients.map((ingridient) => {
+              {recipe.ingredients?.map((ingredient) => {
                 return (
                   <li
                     className="ml-5 font-medium md:font-semibold "
-                    key={ingridient.name}
+                    key={ingredient.name}
                   >
-                    {ingridient.quantity} {ingridient.unit} de {ingridient.name}
+                    {ingredient.quantity} {ingredient.unit} de {ingredient.name}
                   </li>
                 );
               })}
@@ -56,7 +64,7 @@ export default function DetailsScreen({recipeId}) {
           </div>
         </div>
         <div className="mt-10">
-          {recipe.steps.map((step) => {
+          {recipe.steps?.map((step) => {
             return (
               <>
                 <div className="text-lg font-bold text-riquissima mt-5">
