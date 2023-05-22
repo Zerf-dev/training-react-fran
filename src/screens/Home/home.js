@@ -10,7 +10,10 @@ import recipeActions from "@/redux/recipes/actions";
 
 export default function HomeScreen() {
   const dispatch = useDispatch();
-  useEffect(() => {dispatch(recipeActions.getAllRecipes());}, []);
+
+  useEffect(() => {
+    dispatch(recipeActions.getAllRecipes());
+  }, [dispatch]);
 
   return (
     <>

@@ -34,11 +34,9 @@ export const actionCreators = {
     type: actions.GET_ALL_RECIPES,
     target: "recipes",
     service: recipesService.getAllRecipes,
-    successSelector: (response) => response.data
   }),
 
-
-  getRecipeById: recipeId => ({
+  getRecipeById: (recipeId) => ({
     type: actions.GET_RECIPE_BY_ID,
     target: "recipe",
     service: recipesService.getRecipieById,

@@ -4,11 +4,9 @@ const API_URL = "https://backend.training-react.development.zerf.tech/recipes";
 
 const getAllRecipes = () => api.get();
 
-const getRecipieById = ({recipeId}) => api.get(`/${recipeId}`);
+const getRecipieById = ({ recipeId }) => api.get(`/${recipeId}`);
 
-
-
-export default{
+export default {
   getAllRecipes,
-  getRecipieById
-}
+  getRecipieById,
+};

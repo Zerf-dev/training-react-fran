@@ -1,5 +1,5 @@
 import Immutable from "seamless-immutable";
-import { createReducer, onReadValue } from "redux-recompose";
+import { completeReducer, createReducer, onReadValue } from "redux-recompose";
 import { actions } from "./actions";
 
 const initialState = {
@@ -9,14 +9,16 @@ const initialState = {
 };
 
 const reducerDescription = {
-  primaryActions: [actions.GET_ALL_RECIPIES, actions.GET_RECIPE_BY_ID],
+  primaryActions: [actions.GET_ALL_RECIPES, actions.GET_RECIPE_BY_ID],
   override: {
     [actions.ADD_FAVOURITE]: onReadValue(),
     [actions.REMOVE_FAVOURITE]: onReadValue(),
-    [actions.LOAD_RECIPES]: onReadValue(),
   },
 };
 
-const reducer = createReducer(new Immutable(initialState), reducerDescription);
+const reducer = createReducer(
+  new Immutable(initialState),
+  completeReducer(reducerDescription)
+);
 
 export default reducer;
