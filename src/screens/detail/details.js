@@ -4,9 +4,8 @@ import { useSelector } from "react-redux";
 import Card from "./components/card";
 import { useDispatch } from "react-redux";
 import recipeActions from "@/redux/recipes/actions";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import LoadingWrapper from "@/components/common/LoadingWrapper";
-import { useRouter } from "next/router";
 
 const categories = [
   { id: "breakfast", name: "DESAYUNO" },
@@ -15,17 +14,14 @@ const categories = [
   { id: "dinner", name: "CENA" },
 ];
 
-export default function DetailsScreen() {
+export default function DetailsScreen({ recipeId }) {
   const dispatch = useDispatch();
-  const router = useRouter();
-  const recipeId = router.query.id;
 
   useEffect(() => {
     if (recipeId) {
-      console.log("holi");
       dispatch(recipeActions.getRecipeById(recipeId));
     }
-  }, []);
+  }, [recipeId, dispatch]);
 
   const { recipeById: recipe, recipeByIdLoading: recipeLoading } = useSelector(
     (state) => state.recipes
