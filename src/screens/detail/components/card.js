@@ -7,10 +7,8 @@ import recipeActions from "@/redux/recipes/actions";
 
 
 
-export default function Card({ recipeId }) {
-  const recipe = useSelector((state) => state.recipes.recipes).find(
-    (recipe) => recipe.id === recipeId
-  );
+export default function Card({ recipe }) {
+  
   const favouriteRecipes = useSelector((state) => state.recipes.favourites);
 
   const dispatch = useDispatch();

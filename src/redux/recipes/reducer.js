@@ -5,7 +5,7 @@ import { actions } from "./actions";
 const initialState = {
   favourites: [],
   recipes: [],
-  recipeById: {},
+  recipeById: {}
 };
 
 const reducerDescription = {

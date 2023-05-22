@@ -3,7 +3,7 @@ import Estrella from "../assets/Estrella.svg";
 import EstrellaBlanca from "../assets/Estrella Blanca.svg";
 
 import { useDispatch, useSelector } from "react-redux";
-import recipeActions from "@/redux/recipes/actions";
+import recipeActions, { actionCreators } from "@/redux/recipes/actions";
 import Link from "next/link";
 
 export default function Card({ recipeId }) {
@@ -16,10 +16,14 @@ export default function Card({ recipeId }) {
   const addFavourite = (recipe) => dispatch(recipeActions.addFavourite(recipe));
   const removeFavourite = (recipe) =>
     dispatch(recipeActions.removeFavourite(recipe));
+  
 
   return (
     <div className="w-full h-full relative ">
-      <Link href={`/recipes/${recipeId}`} className="">
+      <Link
+        href={`/details/${recipeId}`}
+        className=""
+      >
         <Image
           src={recipe.image}
           width={400}

@@ -38,8 +38,8 @@ export const actionCreators = {
 
   getRecipeById: (recipeId) => ({
     type: actions.GET_RECIPE_BY_ID,
-    target: "recipe",
-    service: recipesService.getRecipieById,
+    target: "recipeById",
+    service: recipesService.getRecipeById,
     payload: { recipeId },
   }),
 };
