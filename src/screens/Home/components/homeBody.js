@@ -3,6 +3,7 @@ import Cross from "../assets/cross.svg";
 import RecipeList from "./recipeList";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import Link from "next/link";
 
 const selectedStyle =
   "text-sm  p-1 my-4 mx-1 md:m-1 lg:text-base lg:mr-3 font-bold border-b-2 border-riquissima";
@@ -63,9 +64,11 @@ export default function HomeBody() {
               Recetas favoritas ({favouriteRecipes.length})
             </button>
           </div>
+          <Link href={"/newRecipe"}>
           <button className="text-white p-2 bg-riquissima rounded-lg font-bold ">
             + Agregar Receta
           </button>
+          </Link>
         </div>
         <RecipeList showFavourites={showFavourites} search={searchValue} />
       </div>

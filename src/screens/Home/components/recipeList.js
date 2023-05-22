@@ -1,36 +1,41 @@
 import Card from "./card";
 import { useSelector } from "react-redux";
 import MapRecipes from "./mapRecipes";
+import { useState } from "react";
 
-/*
-const recipesFavoritas = [
-  recipes.at(1),
-  recipes.at(5),
-  recipes.at(6),
-  recipes.at(7),
-];*/
+const categories = [
+  { id: "breakfast", name: "DESAYUNO" },
+  { id: "lunch", name: "ALMUERZO" },
+  { id: "tea_hour", name: "HORA DEL TÉ" },
+  { id: "dinner", name: "CENA" },
+];
 
 export default function RecipeList({ showFavourites, search = "" }) {
-  const FavouriteRecipes = useSelector((state) => state.recipes.favourites);
+  const favouriteRecipes = useSelector((state) => state.recipes.favourites);
   const recipes = useSelector((state) => state.recipes.recipes);
   const re = new RegExp(search, "i");
-  const searchResults = [];
 
   if (showFavourites) {
     {
-      const searchResults = FavouriteRecipes.filter((favourite) =>
-        Object.values(favourite).some(
-          (val) => typeof val === "string" && val.match(re)
-        )
+      const searchResults = favouriteRecipes.filter(
+        (favourite) =>
+        favourite.name.toUpperCase().includes(search.toUpperCase()) ||
+          categories
+            .find((category) => category.id === favourite.category)
+            .name.toUpperCase()
+            .includes(search.toUpperCase())
       );
       return <MapRecipes recipes={searchResults} />;
     }
   } else {
     {
-      const searchResults = recipes.filter((recipe) =>
-        Object.values(recipe).some(
-          (val) => typeof val === "string" && val.match(re)
-        )
+      const searchResults = recipes.filter(
+        (recipe) =>
+          recipe.name.toUpperCase().includes(search.toUpperCase()) ||
+          categories
+            .find((category) => category.id === recipe.category)
+            .name.toUpperCase()
+            .includes(search.toUpperCase())
       );
       return <MapRecipes recipes={searchResults} />;
     }

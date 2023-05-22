@@ -18,8 +18,8 @@ export default function Card({ recipeId }) {
     dispatch(recipeActions.removeFavourite(recipe));
 
   return (
-    <Link href={`/recipes/${recipeId}`} className="">
-      <div className="w-full h-full relative ">
+    <div className="w-full h-full relative ">
+      <Link href={`/recipes/${recipeId}`} className="">
         <Image
           src={recipe.image}
           width={400}
@@ -30,26 +30,26 @@ export default function Card({ recipeId }) {
         <p className="py-2.5 pl-2 w-full text-sm font-bold absolute bottom-0 bg-white/75 rounded-t-md md:text-xs md:pl-1 md:py-1 lg:text-sm xl:text-base">
           {recipe.name.toUpperCase()}
         </p>
-        {favouriteRecipes.some((favourite) => favourite.id === recipe.id) ? (
-          <button
-            onClick={() => {
-              removeFavourite(recipe);
-            }}
-            className="absolute right-0 top-0 mt-2 mr-2 p-2 bg-white/75 rounded-xl md:p-1 lg:p-2"
-          >
-            <Estrella className="" />
-          </button>
-        ) : (
-          <button
-            onClick={() => {
-              addFavourite(recipe);
-            }}
-            className="absolute right-0 top-0 mt-2 mr-2 p-2 bg-white/75 rounded-xl md:p-1 lg:p-2"
-          >
-            <EstrellaBlanca className="" />
-          </button>
-        )}
-      </div>
-    </Link>
+      </Link>
+      {favouriteRecipes.some((favourite) => favourite.id === recipe.id) ? (
+        <button
+          onClick={() => {
+            removeFavourite(recipe);
+          }}
+          className="absolute right-0 top-0 mt-2 mr-2 p-2 bg-white/75 rounded-xl md:p-1 lg:p-2"
+        >
+          <Estrella className="" />
+        </button>
+      ) : (
+        <button
+          onClick={() => {
+            addFavourite(recipe);
+          }}
+          className="absolute right-0 top-0 mt-2 mr-2 p-2 bg-white/75 rounded-xl md:p-1 lg:p-2"
+        >
+          <EstrellaBlanca className="" />
+        </button>
+      )}
+    </div>
   );
 }

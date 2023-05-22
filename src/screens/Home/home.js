@@ -4,19 +4,13 @@ import banner from "./assets/heroimg.png";
 import bannerMobile from "./assets/heroimg mobile.png";
 import Image from "next/image";
 import HomeBody from "./components/homeBody";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import recipeActions from "@/redux/recipes/actions";
-import { getAllRecipies } from "@/services/recipes";
 
 export default function HomeScreen() {
   const dispatch = useDispatch();
-  useEffect(() => {
-    getAllRecipies().then((data) => {
-      dispatch(recipeActions.fetchRecipes(data));
-    });
-  }, []);
-  useDispatch(recipeActions.fetchRecipes());
+  useEffect(() => {dispatch(recipeActions.getAllRecipes());}, []);
 
   return (
     <>

@@ -6,7 +6,6 @@ export default function MapRecipes({ recipes }) {
       {recipes.map((recipe) => {
         return (
           <>
-            {console.log(recipe.id)}
             <Card key={recipe.id} recipeId={recipe.id} />
           </>
         );

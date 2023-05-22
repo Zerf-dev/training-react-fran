@@ -11,6 +11,8 @@
   "dependencies": {
     "@next/font": "13.1.6",
     "@svgr/webpack": "^8.0.1",
+    "apisauce": "^3.0.0",
+    "cerealizr": "^1.0.1-alpha",
     "eslint": "8.33.0",
     "eslint-config-next": "13.1.6",
     "next": "13.1.6",

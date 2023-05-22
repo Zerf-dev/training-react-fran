@@ -1,18 +1,16 @@
-import { useEffect, useState } from "react";
 import { createTypes, completeTypes } from "redux-recompose";
-import { getAllRecipies } from "@/services/recipes";
+import recipesService from "@/services/recipes";
 
 export const actions = createTypes(
   completeTypes({
-    primaryActions: [],
-    ignoredActions: ["ADD_FAVOURITE", "REMOVE_FAVOURITE", "LOAD_RECIPES"],
+    primaryActions: ["GET_ALL_RECIPES", "GET_RECIPE_BY_ID"],
+    ignoredActions: ["ADD_FAVOURITE", "REMOVE_FAVOURITE"],
   }),
   "@@RECIPES"
 );
 
 export const actionCreators = {
   addFavourite: (recipe) => (dispatch, getState) => {
-
     const favourites = getState().recipes.favourites;
 
     dispatch({
@@ -32,10 +30,19 @@ export const actionCreators = {
     });
   },
 
-  fetchRecipes: (recipes) => ({
-    type: actions.LOAD_RECIPES,
+  getAllRecipes: () => ({
+    type: actions.GET_ALL_RECIPES,
     target: "recipes",
-    payload: recipes,
+    service: recipesService.getAllRecipes,
+    successSelector: (response) => response.data
+  }),
+
+
+  getRecipeById: recipeId => ({
+    type: actions.GET_RECIPE_BY_ID,
+    target: "recipe",
+    service: recipesService.getRecipieById,
+    payload: { recipeId },
   }),
 };
 
