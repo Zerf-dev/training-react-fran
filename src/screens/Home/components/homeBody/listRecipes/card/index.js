@@ -1,15 +1,13 @@
 import Image from "next/image";
-import Estrella from "../assets/Estrella.svg";
-import EstrellaBlanca from "../assets/Estrella Blanca.svg";
+import Estrella from "@/screens/Home/assets/Estrella.svg";
+import EstrellaBlanca from "@/screens/Home/assets/Estrella Blanca.svg";
 
 import { useDispatch, useSelector } from "react-redux";
 import recipeActions, { actionCreators } from "@/redux/recipes/actions";
 import Link from "next/link";
 
-export default function Card({ recipeId }) {
-  const recipe = useSelector((state) => state.recipes.recipes).find(
-    (recipe) => recipe.id === recipeId
-  );
+export default function Card({ recipe }) {
+ 
   const favouriteRecipes = useSelector((state) => state.recipes.favourites);
 
   const dispatch = useDispatch();
@@ -21,7 +19,7 @@ export default function Card({ recipeId }) {
   return (
     <div className="w-full h-full relative ">
       <Link
-        href={`/details/${recipeId}`}
+        href={`/recipes/${recipe.id}`}
         className=""
       >
         <Image

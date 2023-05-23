@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Estrella from "../assets/Estrella.svg";
-import EstrellaBlanca from "../assets/Estrella Blanca.svg";
+import Estrella from "@/screens/recipes/assets/Estrella.svg";
+import EstrellaBlanca from "@/screens/recipes/assets/Estrella Blanca.svg";
 
 import { useDispatch, useSelector } from "react-redux";
 import recipeActions from "@/redux/recipes/actions";

@@ -14,7 +14,7 @@ const categories = [
   { id: "dinner", name: "CENA" },
 ];
 
-export default function DetailsScreen({ recipeId }) {
+export default function RecipesScreen({ recipeId }) {
   const dispatch = useDispatch();
 
   useEffect(() => {

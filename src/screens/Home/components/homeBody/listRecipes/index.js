@@ -1,7 +1,5 @@
 import Card from "./card";
 import { useSelector } from "react-redux";
-import MapRecipes from "./mapRecipes";
-import { useState } from "react";
 
 const categories = [
   { id: "breakfast", name: "DESAYUNO" },
@@ -10,7 +8,7 @@ const categories = [
   { id: "dinner", name: "CENA" },
 ];
 
-export default function RecipeList({ showFavourites, search = "" }) {
+export default function listRecipes({ showFavourites, search = "" }) {
   const favouriteRecipes = useSelector((state) => state.recipes.favourites);
   const recipes = useSelector((state) => state.recipes.recipes);
   const re = new RegExp(search, "i");
@@ -19,13 +17,23 @@ export default function RecipeList({ showFavourites, search = "" }) {
     {
       const searchResults = favouriteRecipes.filter(
         (favourite) =>
-        favourite.name.toUpperCase().includes(search.toUpperCase()) ||
+          favourite.name.toUpperCase().includes(search.toUpperCase()) ||
           categories
             .find((category) => category.id === favourite.category)
             .name.toUpperCase()
             .includes(search.toUpperCase())
       );
-      return <MapRecipes recipes={searchResults} />;
+      return (
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
+          {searchResults.map((recipe) => {
+            return (
+              <>
+                <Card key={recipe.id} recipe={recipe} />
+              </>
+            );
+          })}
+        </div>
+      );
     }
   } else {
     {
@@ -37,7 +45,18 @@ export default function RecipeList({ showFavourites, search = "" }) {
             .name.toUpperCase()
             .includes(search.toUpperCase())
       );
-      return <MapRecipes recipes={searchResults} />;
+      return (
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
+          {searchResults.map((recipe) => {
+            return (
+              <>
+                <Card key={recipe.id} recipe={recipe} />
+              </>
+            );
+          })}
+        </div>
+      );
     }
   }
 }
+
