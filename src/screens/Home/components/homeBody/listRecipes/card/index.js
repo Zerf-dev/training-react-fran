@@ -27,7 +27,7 @@ export default function Card({ recipe }) {
           width={400}
           height={400}
           alt="Card"
-          className="object-cover rounded-lg h-60 w-full md:object-fill md:h-full "
+          className="object-cover rounded-lg h-60 w-full md:object-cover md:h-full "
         />
         <p className="py-2.5 pl-2 w-full text-sm font-bold absolute bottom-0 bg-white/75 rounded-t-md md:text-xs md:pl-1 md:py-1 lg:text-sm xl:text-base">
           {recipe.name.toUpperCase()}

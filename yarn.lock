@@ -1418,6 +1418,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@formkit/auto-animate@npm:^1.0.0-beta.6":
+  version: 1.0.0-pre-alpha.3
+  resolution: "@formkit/auto-animate@npm:1.0.0-pre-alpha.3"
+  peerDependencies:
+    react: ^16.8.0
+    vue: ^3.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    vue:
+      optional: true
+  checksum: d0d5fa8a32c4614d33ffba3d56f184a23161d82139e090f39778457673d2450b353a46b59d7468089850fcfbc3b0897371ae1888b713349caf1bf760687369ad
+  languageName: node
+  linkType: hard
+
 "@gar/promisify@npm:^1.1.3":
   version: 1.1.3
   resolution: "@gar/promisify@npm:1.1.3"
@@ -4846,6 +4861,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "next-react-training@workspace:."
   dependencies:
+    "@formkit/auto-animate": ^1.0.0-beta.6
     "@next/font": 13.1.6
     "@svgr/webpack": ^8.0.1
     apisauce: ^3.0.0
@@ -4859,6 +4875,7 @@ __metadata:
     next-redux-wrapper: ^8.1.0
     postcss: ^8.4.21
     react: 18.2.0
+    react-device-detect: ^2.2.3
     react-dom: 18.2.0
     react-hook-form: ^7.43.9
     react-redux: ^8.0.5
@@ -5459,6 +5476,18 @@ __metadata:
   version: 1.2.3
   resolution: "queue-microtask@npm:1.2.3"
   checksum: b676f8c040cdc5b12723ad2f91414d267605b26419d5c821ff03befa817ddd10e238d22b25d604920340fd73efd8ba795465a0377c4adf45a4a41e4234e42dc4
+  languageName: node
+  linkType: hard
+
+"react-device-detect@npm:^2.2.3":
+  version: 2.2.3
+  resolution: "react-device-detect@npm:2.2.3"
+  dependencies:
+    ua-parser-js: ^1.0.33
+  peerDependencies:
+    react: ">= 0.14.0"
+    react-dom: ">= 0.14.0"
+  checksum: 42d9b3182b9d2495bf0d7914c9f370da51d8bdb853a3eba2acaf433894ae760386a075ba103185be825b33d42f50d85ef462087f261656d433f4c74dab23861f
   languageName: node
   linkType: hard
 
@@ -6327,6 +6356,13 @@ __metadata:
     for-each: ^0.3.3
     is-typed-array: ^1.1.9
   checksum: 2228febc93c7feff142b8c96a58d4a0d7623ecde6c7a24b2b98eb3170e99f7c7eff8c114f9b283085cd59dcd2bd43aadf20e25bba4b034a53c5bb292f71f8956
+  languageName: node
+  linkType: hard
+
+"ua-parser-js@npm:^1.0.33":
+  version: 1.0.35
+  resolution: "ua-parser-js@npm:1.0.35"
+  checksum: 02370d38a0c8b586f2503d1c3bbba5cbc0b97d407282f9023201a99e4c03eae4357a2800fdf50cf80d73ec25c0b0cc5bfbaa03975b0add4043d6e4c86712c9c1
   languageName: node
   linkType: hard
 

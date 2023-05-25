@@ -6,8 +6,8 @@ import { useSelector } from "react-redux";
 import Link from "next/link";
 
 const selectedStyle =
-  "text-sm  p-1 my-4 mx-1 md:m-1 lg:text-base lg:mr-3 font-bold border-b-2 border-riquissima";
-const unselecteStyle = "text-sm p-1 my-4 mx-1 md:m-1 lg:text-base lg:mr-3";
+  "w-full text-sm  p-1 my-4 mx-1 md:w-auto md:m-1 lg:text-base lg:mr-3 font-bold border-b-2 border-riquissima";
+const unselecteStyle = "w-full text-sm p-1 my-4 mx-1 md:w-auto md:m-1 lg:text-base lg:mr-3";
 
 export default function HomeBody() {
   const [showFavourites, setShowFavourites] = useState(false);
@@ -65,7 +65,7 @@ export default function HomeBody() {
             </button>
           </div>
           <Link href={"/newRecipe"}>
-          <button className="text-white p-2 bg-riquissima rounded-lg font-bold ">
+          <button className="w-full text-white p-2 bg-riquissima rounded-lg font-bold ">
             + Agregar Receta
           </button>
           </Link>

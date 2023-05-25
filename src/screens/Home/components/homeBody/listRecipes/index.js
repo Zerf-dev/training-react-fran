@@ -11,9 +11,8 @@ const categories = [
 export default function listRecipes({ showFavourites, search = "" }) {
   const favouriteRecipes = useSelector((state) => state.recipes.favourites);
   const recipes = useSelector((state) => state.recipes.recipes);
-  const re = new RegExp(search, "i");
 
-  if (showFavourites) {
+  {if (showFavourites) {
     {
       const searchResults = favouriteRecipes.filter(
         (favourite) =>
@@ -24,7 +23,7 @@ export default function listRecipes({ showFavourites, search = "" }) {
             .includes(search.toUpperCase())
       );
       return (
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
+        <div  className="grid grid-cols-1 gap-4 md:grid-cols-4">
           {searchResults.map((recipe) => {
             return (
               <>
@@ -57,6 +56,6 @@ export default function listRecipes({ showFavourites, search = "" }) {
         </div>
       );
     }
-  }
+  }}
 }
 
