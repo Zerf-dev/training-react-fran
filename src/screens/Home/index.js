@@ -15,29 +15,13 @@ export default function HomeScreen() {
     dispatch(recipeActions.getAllRecipes());
   }, [dispatch]);
 
-  /*
-  const [width, setWidth] = useState(window.innerWidth);
-
-  function handleWindowSizeChange() {
-    setWidth(window.innerWidth);
-  }
-
-  useEffect(() => {
-    window.addEventListener("resize", handleWindowSizeChange);
-    return () => {
-      window.removeEventListener("resize", handleWindowSizeChange);
-    };
-  }, []);
-  */
   return (
     <>
       <Header />
       <div className="border-b-2">
         <div className="mx-4 h-full relative">
-          
-         
-            <Image src={banner} className="w-full rounded-3xl" alt="Banner" />
-          
+          <Image src={banner} className="w-full rounded-3xl" alt="Banner" />
+
           <div className="absolute w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
             <div className="font-bold text-3xl md:text-5xl">
               NUESTRAS RECETAS

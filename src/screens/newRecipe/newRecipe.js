@@ -5,7 +5,9 @@ import { useForm, useFieldArray } from "react-hook-form";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import recipes from "@/services/recipes";
-import { useAutoAnimate } from '@formkit/auto-animate/react'
+import { useAutoAnimate } from "@formkit/auto-animate/react";
+import { ROUTES } from "@/components/constants";
+import FieldInput from "./components/FieldInput";
 
 export default function NewRecipeScreen() {
   const router = useRouter();
@@ -35,12 +37,11 @@ export default function NewRecipeScreen() {
   const onSubmit = (data) => {
     console.log(data);
     recipes.createRecipe(data);
-    router.push("/");
+    router.push(ROUTES.HOME);
   };
 
   const ingredientsParent = useAutoAnimate();
   const stepsParent = useAutoAnimate();
-
 
   return (
     <>
@@ -55,7 +56,7 @@ export default function NewRecipeScreen() {
               TÍTULO DE RECETA
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2">
-              <div className="m-4 ml-0">
+              {/*<div className="m-4 ml-0">
                 <label className="font-semibold">NOMBRE DE RECETA</label>
                 <input
                   type="text"
@@ -64,7 +65,15 @@ export default function NewRecipeScreen() {
                   placeholder="Escriba el nombre de la receta"
                 />
                 <div className="text-xs">Maximo 46 Caracteres</div>
-              </div>
+              </div>*/}
+              <FieldInput
+                label={"NOMBRE DE RECETA"}
+                config={{ required: true, maxLength: 46 }}
+                name={"name"}
+                placeholder={"Escriba el nombre de la receta"}
+                register={register}
+                underText={"Maximo 46 Caracteres"}
+              />
               <div className="m-4 ml-0">
                 <label className="font-semibold">CATEGORÍA</label>
                 <select
@@ -100,7 +109,10 @@ export default function NewRecipeScreen() {
               </div>
             </div>
           </div>
-          <div ref={ingredientsParent} className="border mb-10 p-7 border-gray-300 rounded-xl">
+          <div
+            ref={ingredientsParent}
+            className="border mb-10 p-7 border-gray-300 rounded-xl"
+          >
             <div className="text-riquissima font-bold text-lg mb-5">
               LISTA DE INGREDIENTES
             </div>
@@ -175,7 +187,10 @@ export default function NewRecipeScreen() {
               + agregar ingrediente
             </button>
           </div>
-          <div ref={stepsParent} className="border mb-10 p-7 border-gray-300 rounded-xl">
+          <div
+            ref={stepsParent}
+            className="border mb-10 p-7 border-gray-300 rounded-xl"
+          >
             <div className="text-riquissima font-bold text-lg mb-5">
               PASOS DE LA RECETA
             </div>
@@ -228,7 +243,7 @@ export default function NewRecipeScreen() {
             </button>
           </div>
           <div className="flex justify-around md:justify-end">
-            <Link href={"/"}>
+            <Link href={ROUTES.HOME}>
               <button
                 type="button"
                 className="mx-2 mt-6 px-10 py-3 md:px-7 md:py-2 md:mt-0 font-semibold text-riquissima border border-riquissima rounded-xl"

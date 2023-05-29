@@ -1,19 +1,19 @@
 import Search from "@/screens/Home/assets/search.svg";
 import Cross from "@/screens/Home/assets/cross.svg";
-import RecipeList from "./listRecipes";
+import ListRecipes from "../listRecipes/index";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import Link from "next/link";
-
-const selectedStyle =
-  "w-full text-sm  p-1 my-4 mx-1 md:w-auto md:m-1 lg:text-base lg:mr-3 font-bold border-b-2 border-riquissima";
-const unselecteStyle = "w-full text-sm p-1 my-4 mx-1 md:w-auto md:m-1 lg:text-base lg:mr-3";
+import ListButton from "./listButton";
+import { ROUTES } from "@/components/constants";
 
 export default function HomeBody() {
   const [showFavourites, setShowFavourites] = useState(false);
-  const [allRecipesStyle, setAllResipesStyle] = useState(selectedStyle);
-  const [favouriteRecipesStyle, setFavouriteRecipesStyle] =
-    useState(unselecteStyle);
+
+  const [selectedButton, setSelectedButton] = useState(0);
+  const onSelect = () => {
+    setSelectedButton;
+  };
 
   const recipes = useSelector((state) => state.recipes.recipes);
   const favouriteRecipes = useSelector((state) => state.recipes.favourites);
@@ -34,8 +34,9 @@ export default function HomeBody() {
             setSearchValue(event.target.value);
           }}
         />
-        {searchValue !== "" && (
-          <button onClick={() => setSearchValue("")} className="px-2">
+
+        {searchValue && (
+          <button onClick={() => setSearchValue("")} className="bg-white px-2">
             <Cross />
           </button>
         )}
@@ -43,34 +44,32 @@ export default function HomeBody() {
       <div className="w-auto md:mx-5">
         <div className="flex flex-col justify-between my-3 md:flex-row">
           <div className="flex justify-around md:justify-start">
-            <button
-              className={allRecipesStyle}
-              onClick={() => {
+            <ListButton
+              isSelected={selectedButton === 0}
+              onSelect={() => {
                 setShowFavourites(false);
-                setAllResipesStyle(selectedStyle);
-                setFavouriteRecipesStyle(unselecteStyle);
+                setSelectedButton(0);
               }}
-            >
-              Todas las recetas ({recipes.length})
-            </button>
-            <button
-              className={favouriteRecipesStyle}
-              onClick={() => {
+              content={"Todas las recetas"}
+              listLength={recipes.length}
+            />
+            <ListButton
+              isSelected={selectedButton === 1}
+              onSelect={() => {
                 setShowFavourites(true);
-                setAllResipesStyle(unselecteStyle);
-                setFavouriteRecipesStyle(selectedStyle);
+                setSelectedButton(1);
               }}
-            >
-              Recetas favoritas ({favouriteRecipes.length})
-            </button>
+              content={"Recetas favoritas"}
+              listLength={favouriteRecipes.length}
+            />
           </div>
-          <Link href={"/newRecipe"}>
-          <button className="w-full text-white p-2 bg-riquissima rounded-lg font-bold ">
-            + Agregar Receta
-          </button>
+          <Link href={ROUTES.NEW_RECIPE}>
+            <button className="w-full text-white p-2 bg-riquissima rounded-lg font-bold ">
+              + Agregar Receta
+            </button>
           </Link>
         </div>
-        <RecipeList showFavourites={showFavourites} search={searchValue} />
+        <ListRecipes showFavourites={showFavourites} search={searchValue} />
       </div>
     </div>
   );

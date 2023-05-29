@@ -1,18 +1,12 @@
 import Footer from "@/components/footer";
 import Header from "@/components/header";
 import { useSelector } from "react-redux";
-import Card from "./components/card";
+import Card from "@/screens/Home/components/listRecipes/components/card/index";
 import { useDispatch } from "react-redux";
 import recipeActions from "@/redux/recipes/actions";
 import { useEffect } from "react";
 import LoadingWrapper from "@/components/common/LoadingWrapper";
-
-const categories = [
-  { id: "breakfast", name: "DESAYUNO" },
-  { id: "lunch", name: "ALMUERZO" },
-  { id: "tea_hour", name: "HORA DEL TÉ" },
-  { id: "dinner", name: "CENA" },
-];
+import { CATEGORIES } from "../../components/constants";
 
 export default function RecipesScreen({ recipeId }) {
   const dispatch = useDispatch();
@@ -34,12 +28,12 @@ export default function RecipesScreen({ recipeId }) {
         <div className="text-xl font-bold text-riquissima">
           RECETAS /
           {
-            categories.find((category) => category.id === recipe?.category)
+            CATEGORIES.find((category) => category.id === recipe?.category)
               ?.name
           }
         </div>
         <div className="my-5 flex flex-col md:flex-row justify-start bg-backgroundRecipe-contrast rounded-2xl">
-          <Card recipe={recipe} />
+          <Card recipe={recipe} fromRecipes={true} />
           <div className="flex flex-col mx-3  md:w-1/2 md:ml-10 my-6 space-y-3">
             <div className="text-2xl font-bold">
               {recipe.name?.toUpperCase()}

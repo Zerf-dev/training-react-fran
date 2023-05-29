@@ -1,20 +1,18 @@
 import Image from "next/image";
-import Estrella from "@/screens/recipes/assets/Estrella.svg";
-import EstrellaBlanca from "@/screens/recipes/assets/Estrella Blanca.svg";
+import Star from "@/screens/recipes/assets/Star.svg";
+import WhiteStar from "@/screens/recipes/assets/WhiteStar.svg";
 
 import { useDispatch, useSelector } from "react-redux";
 import recipeActions from "@/redux/recipes/actions";
 
-
-
 export default function Card({ recipe }) {
-  
   const favouriteRecipes = useSelector((state) => state.recipes.favourites);
-
+  const isFavourite = favouriteRecipes.some(
+    (favourite) => favourite.id === recipe.id
+  );
   const dispatch = useDispatch();
-  const addFavourite = (recipe) => dispatch(recipeActions.addFavourite(recipe));
-  const removeFavourite = (recipe) =>
-    dispatch(recipeActions.removeFavourite(recipe));
+  const handleFavourite = (recipe) =>
+    dispatch(recipeActions.handleFavourite(recipe));
 
   return (
     <div className="w-full h-full md:max-w-sm relative">
@@ -25,25 +23,14 @@ export default function Card({ recipe }) {
         alt="Card"
         className="object-cover rounded-2xl w-full h-60 md:object-fill md:h-full "
       />
-      {favouriteRecipes.some((favourite) => favourite.id === recipe.id) ? (
-        <button
-          onClick={() => {
-            removeFavourite(recipe);
-          }}
-          className="absolute left-0 top-0 mt-2 ml-2 p-2 bg-white/75 rounded-xl md:p-1 lg:p-2"
-        >
-          <Estrella className="" />
-        </button>
-      ) : (
-        <button
-          onClick={() => {
-            addFavourite(recipe);
-          }}
-          className="absolute left-0 top-0 mt-2 ml-2 p-2 bg-white/75 rounded-xl md:p-1 lg:p-2"
-        >
-          <EstrellaBlanca className="" />
-        </button>
-      )}
+      <button
+        onClick={() => {
+          handleFavourite(recipe);
+        }}
+        className="absolute left-0 top-0 mt-2 ml-2 p-2 bg-white/75 rounded-xl md:p-1 lg:p-2"
+      >
+        {isFavourite ? <Star /> : <WhiteStar />}
+      </button>
     </div>
   );
 }

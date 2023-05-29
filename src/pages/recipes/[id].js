@@ -1,4 +1,4 @@
-import RecipesScreen from "@/screens/recipes/recipes";
+import RecipesScreen from "@/screens/recipes";
 import { useRouter } from "next/router";
 
 export default function recipes() {

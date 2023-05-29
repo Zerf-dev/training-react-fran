@@ -1,9 +1,9 @@
-import HomeScreen from "@/screens/Home/home";
+import HomeScreen from "@/screens/Home";
 
 export default function Home() {
   return (
     <div className="bg-background">
-      <HomeScreen/>
+      <HomeScreen />
     </div>
   );
 }

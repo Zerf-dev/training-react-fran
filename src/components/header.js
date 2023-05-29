@@ -1,7 +1,7 @@
 import logo from "@/assets/logo.png";
-import usuario from "@/assets/usuario.png";
+import user from "@/assets/user.png";
 import Image from "next/image";
-import Flecha from "@/assets/flecha.svg";
+import Arrow from "@/assets/arrow.svg";
 
 export default function () {
   return (
@@ -10,9 +10,9 @@ export default function () {
         <Image src={logo} alt="Logo" />
       </div>
       <div className="flex flex-row items-center">
-        <Image src={usuario} alt="Logo" />
+        <Image src={user} alt="Logo" />
         <p>nombre usuario</p>
-          <Flecha className="w-4 pl-1"/>
+        <Arrow className="w-4 pl-1" />
       </div>
     </div>
   );
