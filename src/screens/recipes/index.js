@@ -1,12 +1,12 @@
-import Footer from "@/components/footer";
-import Header from "@/components/header";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 import { useSelector } from "react-redux";
-import Card from "@/screens/Home/components/listRecipes/components/card/index";
+import Card from "@/components/Card/index";
 import { useDispatch } from "react-redux";
 import recipeActions from "@/redux/recipes/actions";
 import { useEffect } from "react";
 import LoadingWrapper from "@/components/common/LoadingWrapper";
-import { CATEGORIES } from "../../components/constants";
+import { CATEGORIES } from "../../constants/categories";
 
 export default function RecipesScreen({ recipeId }) {
   const dispatch = useDispatch();

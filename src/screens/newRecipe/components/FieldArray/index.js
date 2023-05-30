@@ -21,4 +21,4 @@ function FieldArray({ id, label, placeholder, type = "text", setValue }) {
   );
 }
 
-export default FieldInput;
+export default FieldArray;

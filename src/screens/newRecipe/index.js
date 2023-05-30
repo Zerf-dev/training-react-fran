@@ -1,13 +1,12 @@
-import Footer from "@/components/footer";
-import Header from "@/components/header";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 import TrashCan from "./assets/TrashCan.svg";
 import { useForm, useFieldArray } from "react-hook-form";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import recipes from "@/services/recipes";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
-import { ROUTES } from "@/components/constants";
-import FieldInput from "./components/FieldInput";
+import { ROUTES } from "@/constants/routes";
 
 export default function NewRecipeScreen() {
   const router = useRouter();
@@ -56,7 +55,7 @@ export default function NewRecipeScreen() {
               TÍTULO DE RECETA
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2">
-              {/*<div className="m-4 ml-0">
+              <div className="m-4 ml-0">
                 <label className="font-semibold">NOMBRE DE RECETA</label>
                 <input
                   type="text"
@@ -65,15 +64,8 @@ export default function NewRecipeScreen() {
                   placeholder="Escriba el nombre de la receta"
                 />
                 <div className="text-xs">Maximo 46 Caracteres</div>
-              </div>*/}
-              <FieldInput
-                label={"NOMBRE DE RECETA"}
-                config={{ required: true, maxLength: 46 }}
-                name={"name"}
-                placeholder={"Escriba el nombre de la receta"}
-                register={register}
-                underText={"Maximo 46 Caracteres"}
-              />
+              </div>
+
               <div className="m-4 ml-0">
                 <label className="font-semibold">CATEGORÍA</label>
                 <select

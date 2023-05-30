@@ -13,14 +13,12 @@ export const actions = createTypes(
 export const actionCreators = {
   handleFavourite: (recipe) => (dispatch, getState) => {
     const favourites = getState().recipes.favourites;
-    let newFavourites;
-    if (favourites.some((favourite) => favourite.id === recipe.id)) {
-      newFavourites = favourites.filter(
-        (favourite) => favourite.id !== recipe.id
-      );
-    } else {
-      newFavourites = [...favourites, recipe];
-    }
+    const isFavourite = favourites.some(
+      (favourite) => favourite.id === recipe.id
+    );
+    const newFavourites = isFavourite
+      ? favourites.filter((favourite) => favourite.id !== recipe.id)
+      : [...favourites, recipe];
 
     dispatch({
       type: actions.HANDLE_FAVOURITE,

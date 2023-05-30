@@ -1,10 +1,10 @@
-import Header from "@/components/header";
-import Footer from "@/components/footer";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import banner from "./assets/heroimg.png";
 import bannerMobile from "./assets/heroimg mobile.png";
 import Image from "next/image";
-import HomeBody from "./components/homeBody";
-import { useState, useEffect } from "react";
+import HomeBody from "./components/HomeBody";
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import recipeActions from "@/redux/recipes/actions";
 

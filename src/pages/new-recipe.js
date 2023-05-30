@@ -1,4 +1,4 @@
-import NewRecipeScreen from "@/screens/newRecipe/newRecipe";
+import NewRecipeScreen from "@/screens/newRecipe";
 
 export default function Home() {
   return (

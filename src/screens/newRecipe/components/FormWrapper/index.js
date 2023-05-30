@@ -66,12 +66,6 @@ function FormWrapper({
               )
           )}
         </Container>
-        <button
-          className="bg-zerf-purpleHeart w-full p-3 rounded-xl mt-8"
-          type="submit"
-        >
-          Create landing
-        </button>
       </form>
     </div>
   );

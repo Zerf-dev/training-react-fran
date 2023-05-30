@@ -1,20 +1,14 @@
 import Search from "@/screens/Home/assets/search.svg";
 import Cross from "@/screens/Home/assets/cross.svg";
-import ListRecipes from "../listRecipes/index";
+import ListRecipes from "../ListRecipes/index";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import Link from "next/link";
-import ListButton from "./listButton";
-import { ROUTES } from "@/components/constants";
+import ListButton from "./ListButton";
+import { ROUTES } from "@/constants/routes";
 
 export default function HomeBody() {
   const [showFavourites, setShowFavourites] = useState(false);
-
-  const [selectedButton, setSelectedButton] = useState(0);
-  const onSelect = () => {
-    setSelectedButton;
-  };
-
   const recipes = useSelector((state) => state.recipes.recipes);
   const favouriteRecipes = useSelector((state) => state.recipes.favourites);
 
@@ -45,19 +39,17 @@ export default function HomeBody() {
         <div className="flex flex-col justify-between my-3 md:flex-row">
           <div className="flex justify-around md:justify-start">
             <ListButton
-              isSelected={selectedButton === 0}
+              isSelected={!showFavourites}
               onSelect={() => {
                 setShowFavourites(false);
-                setSelectedButton(0);
               }}
               content={"Todas las recetas"}
               listLength={recipes.length}
             />
             <ListButton
-              isSelected={selectedButton === 1}
+              isSelected={showFavourites}
               onSelect={() => {
                 setShowFavourites(true);
-                setSelectedButton(1);
               }}
               content={"Recetas favoritas"}
               listLength={favouriteRecipes.length}
