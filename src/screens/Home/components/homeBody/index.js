@@ -1,6 +1,6 @@
 import Search from "@/screens/Home/assets/search.svg";
 import Cross from "@/screens/Home/assets/cross.svg";
-import ListRecipes from "../ListRecipes/index";
+import ListRecipes from "../SearchRecipes/index";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import Link from "next/link";

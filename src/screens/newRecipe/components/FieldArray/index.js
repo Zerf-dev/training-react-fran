@@ -1,24 +1,51 @@
-import React from "react";
+import { arrayOf, element, func, shape, string } from 'prop-types';
+import React from 'react';
 
-function FieldArray({ id, label, placeholder, type = "text", setValue }) {
-  const handleChange = (e) => {
-    setValue(id, e.target.value);
+import AddFieldButton from '../AddFieldButton';
+
+import { getEmptyObject } from './utils';
+
+const FieldArray = ({
+  arrayFieldName,
+  values,
+  keyName,
+  setValue,
+  addField,
+  emptyObject,
+  addButtonClassName,
+  component: Component,
+  ...extraProps
+}) => {
+  const handleAdd = () => {
+    setValue(arrayFieldName, addField(getEmptyObject(emptyObject, arrayFieldName, values?.length)));
   };
   return (
-    <div className="flex flex-col mt-2 w-[500px]">
-      <div className="text-zerf-ebonyClay font-normal text-md my-1">
-        {label}
-      </div>
-      <input
-        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-        type={type}
-        id={id}
-        name={id}
-        placeholder={placeholder}
-        onChange={handleChange}
-      />
-    </div>
+    <>
+      {values.map(({ name: childrenName, ...props }, index) => (
+        <Component
+          {...props}
+          {...extraProps}
+          arrayFieldName={arrayFieldName}
+          key={childrenName}
+          name={childrenName}
+          index={index}
+          setValue={setValue}
+        />
+      ))}
+      <AddFieldButton className={addButtonClassName} fieldName={keyName} onClick={handleAdd} />
+    </>
   );
-}
+};
+
+FieldArray.propTypes = {
+  addButtonClassName: string,
+  addField: func,
+  arrayFieldName: string,
+  component: element,
+  emptyObject: shape({}),
+  keyName: string,
+  setValue: func,
+  values: arrayOf(shape({}))
+};
 
 export default FieldArray;

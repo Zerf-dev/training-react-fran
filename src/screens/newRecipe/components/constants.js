@@ -1,94 +1,46 @@
-import FieldInput from "../FieldInput";
+import FieldInput from "./FieldInput";
+import FieldSelect from "./FieldSelect";
 
 export const DEFAULT_VALUES = {
-  startupName: "",
-  logoImage: "",
-  productDescription: "",
-  instagram: "",
-  twitter: "",
-  firstFeatureName: "",
-  firstFeatureImage: "",
-  secondFeatureName: "",
-  secondFeatureImage: "",
-  thirdFeatureName: "",
-  thirdFeatureImage: "",
-  primaryColor: "",
-  secondaryColor: "",
+  name: "",
+  category: "",
+  imageURL: "",
+  ingredients: [{}],
+  steps: [{ number: 1 }],
 };
 
 export const FORM_FIELDS = [
   {
-    stepNumber: 1,
-    stepTitle: "Your startup",
-    id: "startupName",
+    id: "name",
     component: FieldInput,
-    label: "Startup name",
+    label: "NOMBRE DE RECETA",
+    placeholder: "Escriba el nombre de la receta",
+    underText: "Maximo 46 Caracteres",
+    maxCharacters: 46,
   },
   {
-    id: "logoImage",
-    component: FieldInput,
-    label: "Logo image URL",
+    id: "category",
+    component: FieldSelect,
+    label: "CATEGORIA",
+    defaultValue: "",
+    options: [
+      {
+        value: "",
+        optionName: " Elija una categoría para la receta",
+        disabled: true,
+      },
+      { value: "breakfast", optionName: "Desayuno" },
+      { value: "lunch", optionName: "Almuerzo" },
+      { value: "tea_hour", optionName: "Hora del té" },
+      { value: "dinner", optionName: "Cena" },
+    ],
   },
   {
-    stepNumber: 2,
-    stepTitle: "Your product",
-    id: "productDescription",
+    id: "image",
     component: FieldInput,
-    label: "Product description",
-    type: "textarea",
-  },
-  {
-    id: "instagram",
-    component: FieldInput,
-    label: "Instagram URL",
-  },
-  {
-    id: "twitter",
-    component: FieldInput,
-    label: "Twitter URL",
-  },
-  {
-    stepNumber: 3,
-    stepTitle: "Features",
-    id: "firstFeatureName",
-    component: FieldInput,
-    label: "Feature 1: Name",
-  },
-  {
-    id: "firstFeatureImage",
-    component: FieldInput,
-    label: "Feature 1: Image",
-  },
-  {
-    id: "secondFeatureName",
-    component: FieldInput,
-    label: "Feature 2: Name",
-  },
-  {
-    id: "secondFeatureImage",
-    component: FieldInput,
-    label: "Feature 2: Image",
-  },
-  {
-    id: "thirdFeatureName",
-    component: FieldInput,
-    label: "Feature 3: Name",
-  },
-  {
-    id: "thirdFeatureImage",
-    component: FieldInput,
-    label: "Feature 2: Image",
-  },
-  {
-    stepNumber: 4,
-    stepTitle: "Style",
-    id: "primaryColor",
-    component: FieldInput,
-    label: "Primary color",
-  },
-  {
-    id: "secondaryColor",
-    component: FieldInput,
-    label: "Secondary color",
+    label: "URL DE IMAGEN DEL PLATO TERMINADO",
+    placeholder: "Coloque el URL",
+    underText:
+      "Solo archivos en formato .jpg, .png o .bmp. Máximo de 2mb y resolución de 1000x1000px.",
   },
 ];

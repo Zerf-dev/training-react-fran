@@ -1,13 +1,11 @@
 import React from "react";
 
-function FieldInput({
+function FieldSelect({
   id,
   label,
-  placeholder,
-  type = "text",
+  options = [{ value, optionName, disabled: false }],
+  defaultValue,
   setValue,
-  underText,
-  maxCharacters,
 }) {
   const handleChange = (e) => {
     setValue(id, e.target.value);
@@ -15,19 +13,24 @@ function FieldInput({
   return (
     <div className="m-4 ml-0">
       <div className="font-semibold">{label}</div>
-      <input
+      <select
         className="w-full my-2 p-3 border border-riquissima rounded-lg bg-transparent"
-        type={type}
         id={id}
         name={id}
-        placeholder={placeholder}
+        defaultValue={defaultValue}
         onChange={handleChange}
         required={true}
-        maxLength={maxCharacters}
-      />
-      <div className="text-xs">{underText}</div>
+      >
+        {options.map((option) => {
+          return (
+            <option disabled={option.disabled} value={option.value}>
+              {option.optionName}
+            </option>
+          );
+        })}
+      </select>
     </div>
   );
 }
 
-export default FieldInput;
+export default FieldSelect;

@@ -1,11 +1,12 @@
 import Immutable from "seamless-immutable";
 import { completeReducer, createReducer, onReadValue } from "redux-recompose";
 import { actions } from "./actions";
+import { RECIPE_TARGETS } from "./constants";
 
 const initialState = {
-  favourites: [],
-  recipes: [],
-  recipeById: {},
+  [RECIPE_TARGETS.RECIPES]: [],
+  [RECIPE_TARGETS.FAVOURITES]: [],
+  [RECIPE_TARGETS.RECIPE_BY_ID]: {},
 };
 
 const reducerDescription = {
