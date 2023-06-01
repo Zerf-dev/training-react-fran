@@ -1,6 +1,4 @@
-import classNames from "classnames/bind";
-
-const cx = classNames.bind();
+import cx from "classnames";
 
 export default function ListButton({
   isSelected,

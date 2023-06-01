@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { CATEGORIES } from "@/constants/categories";
 import MapRecipes from "./components/RecipesList";
 
-export default function SearchRecipes({ showFavourites, search = "" }) {
+export default function ListRecipes({ showFavourites, search = "" }) {
   const favouriteRecipes = useSelector((state) => state.recipes.favourites);
   const recipes = useSelector((state) => state.recipes.recipes);
   const searchRecipes = (recipes, search) => {

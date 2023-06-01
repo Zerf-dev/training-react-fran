@@ -1,6 +1,6 @@
 import Search from "@/screens/Home/assets/search.svg";
 import Cross from "@/screens/Home/assets/cross.svg";
-import SearchRecipes from "../SearchRecipes/index";
+import ListRecipes from "../ListRecipes/index";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import Link from "next/link";
@@ -61,7 +61,7 @@ export default function HomeBody() {
             </button>
           </Link>
         </div>
-        <SearchRecipes showFavourites={showFavourites} search={searchValue} />
+        <ListRecipes showFavourites={showFavourites} search={searchValue} />
       </div>
     </div>
   );

@@ -68,12 +68,6 @@ function FormWrapper({
               }) =>
                 !hide && (
                   <div key={name}>
-                    {stepNumber && stepTitle && (
-                      <div>
-                        <div>{stepNumber}</div>
-                        {stepTitle}
-                      </div>
-                    )}
                     <Component
                       control={control}
                       name={name}

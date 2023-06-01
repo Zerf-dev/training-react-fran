@@ -35,8 +35,8 @@ export default function RecipesScreen({ recipeId }) {
         <div className="my-5 flex flex-col md:flex-row justify-start bg-backgroundRecipe-contrast rounded-2xl">
           <Card recipe={recipe} fromRecipes={true} />
           <div className="flex flex-col mx-3  md:w-1/2 md:ml-10 my-6">
-            <div className="text-2xl font-black font-archivo">
-              {recipe.name?.toUpperCase()}
+            <div className="uppercase text-2xl font-black font-archivo">
+              {recipe.name}
             </div>
             <div className="text-xl font-semibold mt-6">INGREDIENTES</div>
             <ul className="list-disc space-y-1.5 mt-2">

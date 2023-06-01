@@ -5,9 +5,7 @@ import { ROUTES } from "@/constants/routes";
 import { useDispatch, useSelector } from "react-redux";
 import recipeActions from "@/redux/recipes/actions";
 import Link from "next/link";
-import classNames from "classnames/bind";
-
-const cx = classNames.bind();
+import cx from "classnames";
 
 export default function Card({ recipe, fromRecipes = false }) {
   const favouriteRecipes = useSelector((state) => state.recipes.favourites);
@@ -32,8 +30,8 @@ export default function Card({ recipe, fromRecipes = false }) {
         />
 
         {!fromRecipes && (
-          <p className="py-3 pl-2.5 w-full text-sm font-semibold absolute bottom-0 bg-white/75 backdrop-blur-sm rounded-t-md rounded-b-xl md:text-xs md:pl-2 md:py-2.5 lg:text-sm xl:text-base">
-            {recipe.name.toUpperCase()}
+          <p className="uppercase py-3 pl-2.5 w-full text-sm font-semibold absolute bottom-0 bg-white/75 backdrop-blur-sm rounded-t-md rounded-b-xl md:text-xs md:pl-2 md:py-2.5 lg:text-sm xl:text-base">
+            {recipe.name}
           </p>
         )}
       </Link>
