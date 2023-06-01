@@ -28,11 +28,11 @@ export default function Card({ recipe, fromRecipes = false }) {
           width={400}
           height={400}
           alt="Card"
-          className="object-cover rounded-2xl h-60 w-full md:object-cover md:h-full "
+          className="object-cover rounded-xl h-60 w-full md:object-cover md:h-full "
         />
 
         {!fromRecipes && (
-          <p className="py-2.5 pl-2 w-full text-sm font-bold absolute bottom-0 bg-white/75 rounded-t-md md:text-xs md:pl-1 md:py-1 lg:text-sm xl:text-base">
+          <p className="py-3 pl-2.5 w-full text-sm font-semibold absolute bottom-0 bg-white/75 backdrop-blur-sm rounded-t-md rounded-b-xl md:text-xs md:pl-2 md:py-2.5 lg:text-sm xl:text-base">
             {recipe.name.toUpperCase()}
           </p>
         )}

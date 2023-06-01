@@ -1,14 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    fontFamily:{
-
-
-    },
     extend: {
+      fontFamily: {
+        body: ["var(--font-rubik)"],
+        archivo: ["var(--font-archivo)"],
+        rubik: ["var(--font-rubik)"],
+      },
       colors: {
         zerf: {
           DEFAULT: "#8640FF",
@@ -25,7 +24,7 @@ module.exports = {
         backgroundRecipe: {
           DEFAULT: "#FCFAFA",
           contrast: "#F9F0EF",
-        }
+        },
       },
     },
   },

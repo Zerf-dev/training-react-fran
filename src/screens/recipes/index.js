@@ -25,7 +25,7 @@ export default function RecipesScreen({ recipeId }) {
     <LoadingWrapper withInitialLoading loading={recipeLoading || !recipeId}>
       <Header />
       <div className="px-7 py-10 border-y-2 md:px-32">
-        <div className="text-xl font-bold text-riquissima">
+        <div className="text-xl font-semibold text-riquissima">
           RECETAS /
           {
             CATEGORIES.find((category) => category.id === recipe?.category)
@@ -34,18 +34,15 @@ export default function RecipesScreen({ recipeId }) {
         </div>
         <div className="my-5 flex flex-col md:flex-row justify-start bg-backgroundRecipe-contrast rounded-2xl">
           <Card recipe={recipe} fromRecipes={true} />
-          <div className="flex flex-col mx-3  md:w-1/2 md:ml-10 my-6 space-y-3">
-            <div className="text-2xl font-bold">
+          <div className="flex flex-col mx-3  md:w-1/2 md:ml-10 my-6">
+            <div className="text-2xl font-black font-archivo">
               {recipe.name?.toUpperCase()}
             </div>
-            <div className="text-xl font-bold">INGREDIENTES</div>
-            <ul className="list-disc ">
+            <div className="text-xl font-semibold mt-6">INGREDIENTES</div>
+            <ul className="list-disc space-y-1.5 mt-2">
               {recipe.ingredients?.map((ingredient) => {
                 return (
-                  <li
-                    className="ml-5 font-medium md:font-semibold "
-                    key={ingredient.name}
-                  >
+                  <li className="ml-5" key={ingredient.name}>
                     {ingredient.quantity} {ingredient.unit} de {ingredient.name}
                   </li>
                 );
@@ -57,10 +54,10 @@ export default function RecipesScreen({ recipeId }) {
           {recipe.steps?.map((step) => {
             return (
               <>
-                <div className="text-lg font-bold text-riquissima mt-5">
+                <div className="text-lg font-semibold text-riquissima mt-5">
                   PASO {step.number}
                 </div>
-                <p className="my-3 font-medium">{step.description}</p>
+                <p className="my-3">{step.description}</p>
               </>
             );
           })}

@@ -52,7 +52,7 @@ function FormWrapper({
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className={containerClassName}>
-        <div className="text-riquissima font-bold text-lg">
+        <div className="text-riquissima font-semibold text-xl">
           TÍTULO DE RECETA
         </div>
         <div className={!separateButtons && formContainerClassName}>
@@ -69,10 +69,8 @@ function FormWrapper({
                 !hide && (
                   <div key={name}>
                     {stepNumber && stepTitle && (
-                      <div className="flex flex-row text-black items-center mt-8 font-bold">
-                        <div className="rounded-full mr-2 text-white bg-zerf-purpleHeart p-1 w-6 h-6  flex flex-col items-center justify-center">
-                          {stepNumber}
-                        </div>
+                      <div>
+                        <div>{stepNumber}</div>
                         {stepTitle}
                       </div>
                     )}
@@ -227,18 +225,18 @@ function FormWrapper({
         </button>
       </div>
 
-      <div className="flex justify-around md:justify-end">
-        <Link href={ROUTES.HOME}>
+      <div className="flex justify-evenly  md:justify-end">
+        <Link href={ROUTES.HOME} className=" w-1/3 md:w-auto">
           <button
             type="button"
-            className="mx-2 mt-6 px-10 py-3 md:px-7 md:py-2 md:mt-0 font-semibold text-riquissima border border-riquissima rounded-xl"
+            className="mt-6 py-3 w-full md:w-auto md:mt-0 md:ml-5 md:py-3 md:px-9 font-semibold text-sm text-riquissima border border-riquissima rounded-lg"
           >
             CANCELAR
           </button>
         </Link>
         <button
           type="submit"
-          className="mx-2 mt-6 px-10 py-3 text-white md:py-2 md:px-7 md:mt-0 bg-riquissima rounded-xl font-semibold"
+          className="mt-6 py-3 w-1/3 md:w-auto md:mt-0 md:ml-5 md:py-3 md:px-9 font-semibold text-sm text-white bg-riquissima rounded-lg "
         >
           PUBLICAR
         </button>

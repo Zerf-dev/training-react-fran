@@ -34,12 +34,10 @@ export default function HomeScreen() {
           )}
 
           <div className="absolute w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
-            <div className="font-bold text-4xl sm:text-5xl md:text-3xl lg:text-5xl ">
+            <div className="font-black font-archivo text-4xl sm:text-5xl md:text-3xl lg:text-5xl ">
               NUESTRAS RECETAS
             </div>
-            <div className="text-xl font-semibold md:font-bold md:text-base">
-              ¿Que querias cocinar hoy?
-            </div>
+            <div className="text-xl md:text-lg">¿Que querias cocinar hoy?</div>
           </div>
         </div>
         <div className=" m-4 mt-10 md:w-2/3 md:mx-auto ">

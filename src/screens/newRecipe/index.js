@@ -24,7 +24,7 @@ export default function NewRecipeScreen() {
     <>
       <Header />
       <div className="px-7 py-10 border-y-2 border-gray-300 md:px-32 bg-background">
-        <div className="text-2xl text-riquissima font-extrabold md:text-xl mb-6">
+        <div className="text-2xl text-riquissima font-archivo font-black md:text-xl mb-6">
           CREACIÓN DE RECETA
         </div>
         <FormWrapper

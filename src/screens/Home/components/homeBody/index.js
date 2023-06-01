@@ -20,7 +20,7 @@ export default function HomeBody() {
         <Search className="px-1 w-9 relative top-0.5" />
         <input
           name="buscador"
-          className="w-full outline-none"
+          className="w-full outline-none bg-inherit"
           type="text"
           placeholder="Buscá una receta"
           value={searchValue}
@@ -30,7 +30,7 @@ export default function HomeBody() {
         />
 
         {searchValue && (
-          <button onClick={() => setSearchValue("")} className="bg-white px-2">
+          <button onClick={() => setSearchValue("")} className="px-2">
             <Cross />
           </button>
         )}
@@ -56,7 +56,7 @@ export default function HomeBody() {
             />
           </div>
           <Link href={ROUTES.NEW_RECIPE}>
-            <button className="w-full text-white p-2 bg-riquissima rounded-lg font-bold ">
+            <button className="w-full text-white py-3 px-6 bg-riquissima rounded-lg text-sm font-semibold">
               + Agregar Receta
             </button>
           </Link>
